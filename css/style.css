@@ -57,7 +57,7 @@ ul {
 	.side-nav {
 		width: 135px;
 		height: 100%;
-		position: absolute;
+		position: fixed;
 		left: 0;
 		background-color: #f2f2f2;
 		padding-right: 40px;
