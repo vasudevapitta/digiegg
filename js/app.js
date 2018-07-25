@@ -21,7 +21,7 @@ $(document).ready(function(){
 		$(val).click(function(){
 			const val = $(this).hasClass("add699")?699:799;
 			const curVal = Number($(this).closest("td").next().find(".total").html());
-			$(this).closest("td").next().find(".total").html((curVal + val).toFixed(2));
+			$(this).closest("td").next().find(".total").html(curVal + val);
 			updateTotal.call(this);
 		});
 	});
@@ -33,7 +33,7 @@ $(document).ready(function(){
 			const val = $(this).hasClass("minus699")?699:799;
 			const curVal = Number($(this).closest("td").next().find(".total").html());
 			if(curVal>0){
-				$(this).closest("td").next().find(".total").html((curVal - val).toFixed(2));
+				$(this).closest("td").next().find(".total").html(curVal - val);
 			}
 			updateTotal.call(this);
 		});
@@ -43,7 +43,7 @@ $(document).ready(function(){
 	function updateTotal(){
 		const val1 = Number($(this).closest(".info").find(".total").first().html());
 		const val2 = Number($(this).closest(".info").find(".total").eq(1).html());
-		$(this).closest(".info").find(".finaltotal").html((val1 + val2).toFixed(2));
+		$(this).closest(".info").find(".finaltotal").html(val1 + val2);
 	}
 
 });
