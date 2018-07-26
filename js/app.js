@@ -41,8 +41,9 @@ $(document).ready(function(){
 
 
 	function updateTotal(){
-		const val1 = Number($(this).closest(".info").find(".total").first().html());
-		const val2 = Number($(this).closest(".info").find(".total").eq(1).html());
+		const srchVal = $(this).closest(".info").find(".total");
+		const val1 = Number(srchVal.first().html());
+		const val2 = Number(srchVal.eq(1).html());
 		$(this).closest(".info").find(".finaltotal").html(val1 + val2);
 	}
 
