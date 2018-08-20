@@ -53,7 +53,7 @@ $(domPriceElems).each(function(ind, arrVal){
 
 //for all input number elements
 $(':input[type="number"]').on({
-	'click, focusout': function(){
+	click: function(){
 		updateVal.call(this);
 	},
 
@@ -62,6 +62,10 @@ $(':input[type="number"]').on({
 			updateVal.call(this);
 		}
 	},
+
+	focusout: function(){
+		updateVal.call(this);
+	}
 });
 
 function updateVal(){
