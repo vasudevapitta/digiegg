@@ -166,55 +166,15 @@ a:hover,
 a:focus {
     text-decoration: underline;
 }
-.widget {
-    width: 65px;
-    height: 30px;
-    background-color: #f2f2f2;
-    border-radius: 20px 20px 20px 20px;
-    -moz-border-radius: 20px 20px 20px 20px;
-    -webkit-border-radius: 20px 20px 20px 20px;
-    -webkit-user-select: none;
-    /* Safari */
-    
-    -moz-user-select: none;
-    /* Firefox */
-    
-    -ms-user-select: none;
-    /* IE10+/Edge */
-    
-    user-select: none;
-    /* Standard */
-    
-    display: flex;
-    justify-content: space-between;
+
+.inputbtn {
+    height: 25px;
+    width: 40px;
+    text-align: center;
+    border-radius: 4px;
+    border: 1px solid;
 }
-.add,
-.minus {
-    width: 30px;
-    height: 30px;
-    display: inline-block;
-}
-.add:hover {
-    background-color: #bdffbd;
-    -webkit-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.4);
-    -moz-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.4);
-    box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.4);
-}
-.minus:hover {
-    background-color: #ffcfbf;
-    -webkit-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.4);
-    -moz-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.4);
-    box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.4);
-}
-.add {
-    background-color: #7beb7b;
-    border-radius: 20px 0 0 20px;
-    -moz-border-radius: 20px 0 0 20px;
-    -webkit-border-radius: 20px 0 0 20px;
-}
-.minus {
-    background-color: #ffa182;
-    border-radius: 0 20px 20px 0;
-    -moz-border-radius: 0 20px 20px 0;
-    -webkit-border-radius: 0 20px 20px 0;
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    opacity: 1;
 }

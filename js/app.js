@@ -1,50 +1,78 @@
-$(document).ready(function(){
+'use strict';
 
-	const hamBtn = $(".fa-bars");
-	const sideNav = $(".side-nav");
-	const overlay = $(".overlay");
+const hamBtn = $(".fa-bars");
+const sideNav = $(".side-nav");
+const overlay = $(".overlay");
 
-	hamBtn.click(function(){
-		sideNav.toggleClass("slide");
-		sideNav.focus();
-		overlay.show();
-	});
-
-	overlay.click(function(){
-		sideNav.toggleClass("slide");
-		$(this).hide();
-	});
-
-	const add = $(".add");
-
-	add.each(function(ind, val){
-		$(val).click(function(){
-			const val = $(this).hasClass("add699")?699:799;
-			const curVal = Number($(this).closest("td").next().find(".total").html());
-			$(this).closest("td").next().find(".total").html(curVal + val);
-			updateTotal.call(this);
-		});
-	});
-
-
-	const minus = $(".minus");
-	minus.each(function(ind, val){
-		$(val).click(function(){
-			const val = $(this).hasClass("minus699")?699:799;
-			const curVal = Number($(this).closest("td").next().find(".total").html());
-			if(curVal>0){
-				$(this).closest("td").next().find(".total").html(curVal - val);
-			}
-			updateTotal.call(this);
-		});
-	});
-
-
-	function updateTotal(){
-		const srchVal = $(this).closest(".info").find(".total");
-		const val1 = Number(srchVal.first().html());
-		const val2 = Number(srchVal.eq(1).html());
-		$(this).closest(".info").find(".finaltotal").html(val1 + val2);
-	}
-
+hamBtn.click(function(){
+	sideNav.toggleClass("slide");
+	sideNav.focus();
+	overlay.show();
 });
+
+overlay.click(function(){
+	sideNav.toggleClass("slide");
+	$(this).hide();
+});
+
+const pwrclr1yr = 8999;
+const pwrclr2yr = 9999;
+
+const ggbyt1yr = 4889;
+const ggbyt2yr = 5589;
+
+const msi1yr = 4889;
+const msi2yr = 5589;
+
+const xfx1yr = 4889;
+const xfx2yr = 5589;
+
+
+const pwrclr1price = $('#pwr1price');
+const pwrclr2price = $('#pwr2price');
+
+const ggbyt1price = $('#ggbyt1price');
+const ggbyt2price = $('#ggbyt2price');
+
+const msi1price = $('#msi1price');
+const msi2price = $('#msi2price');
+
+const xfx1price = $('#xfx1price');
+const xfx2price = $('#xfx2price');
+
+const domPriceElems = [pwrclr1price, pwrclr2price, ggbyt1price, ggbyt2price, msi1price, msi2price, xfx1price, xfx2price];
+const setPrices = [pwrclr1yr, pwrclr2yr, ggbyt1yr, ggbyt2yr, msi1yr, msi2yr, xfx1yr, xfx2yr];
+
+$(domPriceElems).each(function(ind, arrVal){
+	$(arrVal).html(setPrices[ind]);
+});
+
+$(':input[type="number"]').on({
+	'click, focusout': function(){
+		updateVal.call(this);
+	},
+
+	keypress: function(e){
+		if(e.keyCode===13){
+			updateVal.call(this);
+		}
+	},
+});
+
+function updateVal(){
+	const obj = $(this);
+	const inputVal = obj.val();
+	const num = obj.parent().siblings('.price').html();
+	const total = obj.parent().siblings('td').last().children('.total');
+	total.html(inputVal*num);
+	updateFinalVal.call(this);
+}
+
+function updateFinalVal(){
+	const obj = $(this);
+	const objLookUp = obj.closest('table').find('.total');
+	const total1 = parseInt(objLookUp.eq(0).html());
+	const total2 = parseInt(objLookUp.eq(1).html());
+	const finalTotal = obj.closest('table').find('.finaltotal');
+	finalTotal.html(total1+total2);
+}
