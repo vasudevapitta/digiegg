@@ -1,5 +1,7 @@
 'use strict';
 
+/*=====SIDE NAVIGATION BAR FOR MOBILE/IPAD & NARROW VIEWPORTS ON DESKTOP=====*/
+
 const hamBtn = $(".fa-bars");
 const sideNav = $(".side-nav");
 const overlay = $(".overlay");
@@ -15,6 +17,8 @@ overlay.click(function(){
 	$(this).hide();
 });
 
+/*=================SET PRICES HERE=====================*/
+
 const pwrclr1yr = 8999;
 const pwrclr2yr = 9999;
 
@@ -26,7 +30,6 @@ const msi2yr = 5589;
 
 const xfx1yr = 4889;
 const xfx2yr = 5589;
-
 
 const pwrclr1price = $('#pwr1price');
 const pwrclr2price = $('#pwr2price');
@@ -43,10 +46,12 @@ const xfx2price = $('#xfx2price');
 const domPriceElems = [pwrclr1price, pwrclr2price, ggbyt1price, ggbyt2price, msi1price, msi2price, xfx1price, xfx2price];
 const setPrices = [pwrclr1yr, pwrclr2yr, ggbyt1yr, ggbyt2yr, msi1yr, msi2yr, xfx1yr, xfx2yr];
 
+//appending prices to the DOM
 $(domPriceElems).each(function(ind, arrVal){
 	$(arrVal).html(setPrices[ind]);
 });
 
+//for all input number elements
 $(':input[type="number"]').on({
 	'click, focusout': function(){
 		updateVal.call(this);
