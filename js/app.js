@@ -17,7 +17,8 @@ let coins = {
 
 
 $.ajax({
-  url: `https://api.coinmarketcap.com/v2/ticker/?limit=13&sort=coins`  
+  url: `https://api.coinmarketcap.com/v2/ticker/?limit=13&sort=coins`,
+  crossDomain: true,
 }).done(function(response){
   $(response.data).each(function(ind, item, arr){
    	coins.bitcoin.price = item[coins.bitcoin.id].quotes.USD.price;
