@@ -17,7 +17,7 @@ let coins = {
 
 
 $.ajax({
-  url: `https://cors-anywhere.herokuapp.com/api.coinmarketcap.com/v2/ticker/?limit=13&sort=coins`,
+  url: `https://cors-anywhere.herokuapp.com/api.coinmarketcap.com/v2/ticker/?limit=100&sort=coins`,
   crossDomain: true,
   Accept: 'application/json',
   'Accept-Encoding': 'deflate, gzip',
@@ -25,7 +25,7 @@ $.ajax({
 
 }).done(function(response){
   $(response.data).each(function(ind, item, arr){
-   	coins.bitcoin.price = item[coins.bitcoin.id].quotes.USD.price;
+  	coins.bitcoin.price = item[coins.bitcoin.id].quotes.USD.price;
     coins.ethereum.price = item[coins.ethereum.id].quotes.USD.price;
     coins.ethereumClassic.price = item[coins.ethereumClassic.id].quotes.USD.price;
     coins.bitcoinCash.price = item[coins.bitcoinCash.id].quotes.USD.price;
